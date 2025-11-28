@@ -38,14 +38,14 @@ public class Store {
     @Column(nullable = false, length = 30)
     private PlaceType category;
 
-    public Store(String name, String address, String doorType, String modifierType, float latitude, float longitude, String category) {
+    public Store(String name, String address, String doorType, String modifierType, double latitude, double longitude, String category) {
         this.name = name;
         this.address = address;
-        this.doorType = DoorType.valueOf(doorType.toUpperCase());
-        this.modifierType = ModifierType.valueOf(modifierType.toUpperCase());
+        this.doorType = DoorType.of(doorType);
+        this.modifierType = ModifierType.of(modifierType);
         this.latitude = latitude;
         this.longitude = longitude;
-        this.category = PlaceType.valueOf(category.toUpperCase());
+        this.category = PlaceType.of(category);
     }
 
 }
