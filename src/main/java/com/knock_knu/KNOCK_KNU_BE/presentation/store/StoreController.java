@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/store")
 @RequiredArgsConstructor
@@ -19,5 +21,10 @@ public class StoreController {
     @GetMapping("/{id}")
     public ResponseEntity<StoreResponse> getStore(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(storeService.getStore(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<StoreResponse>> getAllStores() {
+        return ResponseEntity.status(HttpStatus.OK).body(storeService.getAllStores());
     }
 }

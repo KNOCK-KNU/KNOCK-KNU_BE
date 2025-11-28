@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class StoreService {
@@ -18,5 +20,11 @@ public class StoreService {
     public StoreResponse getStore(Long id) {
         Store store = storeRepository.findById(id).orElseThrow(() -> new BusinessException(ErrorCode.STORE_NOT_FOUND));
         return StoreResponse.from(store);
+    }
+
+    @Transactional(readOnly = true)
+    public List<StoreResponse> getAllStores() {
+        List<Store> stores = storeRepository.findAll();
+        return stores.stream().map(StoreResponse::from).toList();
     }
 }
