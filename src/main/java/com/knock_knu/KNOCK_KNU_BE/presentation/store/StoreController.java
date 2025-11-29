@@ -2,6 +2,7 @@ package com.knock_knu.KNOCK_KNU_BE.presentation.store;
 
 import com.knock_knu.KNOCK_KNU_BE.application.store.StoreService;
 import com.knock_knu.KNOCK_KNU_BE.presentation.store.dto.StoreResponse;
+import com.knock_knu.KNOCK_KNU_BE.presentation.store.dto.TypeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,5 +27,10 @@ public class StoreController {
     @GetMapping
     public ResponseEntity<List<StoreResponse>> getAllStores() {
         return ResponseEntity.status(HttpStatus.OK).body(storeService.getAllStores());
+    }
+
+    @GetMapping("/types")
+    public ResponseEntity<TypeResponse> getAllTypes() {
+        return ResponseEntity.status(HttpStatus.OK).body(storeService.getAllTypes());
     }
 }

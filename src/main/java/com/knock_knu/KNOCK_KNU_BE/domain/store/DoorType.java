@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
@@ -25,5 +26,11 @@ public enum DoorType {
                 .filter(door -> door.description.equals(description))
                 .findAny()
                 .orElseThrow(() -> new BusinessException(ErrorCode.WRONG_DOOR_NAME));
+    }
+
+    public static List<String> getAllDescriptions() {
+        return Arrays.stream(values())
+                .map(DoorType::getDescription)
+                .toList();
     }
 }

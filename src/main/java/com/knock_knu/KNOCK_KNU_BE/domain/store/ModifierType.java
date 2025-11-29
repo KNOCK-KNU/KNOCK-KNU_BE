@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
@@ -30,5 +31,11 @@ public enum ModifierType {
                 .filter(modifier -> modifier.description.equals(description))
                 .findAny()
                 .orElseThrow(() -> new BusinessException(ErrorCode.WRONG_MODIFIER_NAME));
+    }
+
+    public static List<String> getAllDescriptions() {
+        return Arrays.stream(values())
+                .map(ModifierType::getDescription)
+                .toList();
     }
 }
