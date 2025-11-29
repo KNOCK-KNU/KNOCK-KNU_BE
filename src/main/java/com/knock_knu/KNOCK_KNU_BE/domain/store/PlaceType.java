@@ -17,7 +17,8 @@ public enum PlaceType {
     CLIMBING("클라이밍"),
     GYM("헬스장"),
     STUDY_CAFE("스터디카페"),
-    PC_ROOM("피시방");
+    PC_ROOM("피시방"),
+    HAIR_SALON("미용실");
 
     private final String description;
 

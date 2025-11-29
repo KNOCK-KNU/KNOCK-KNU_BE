@@ -22,7 +22,9 @@ public enum ModifierType {
     BUFFET("뷔페식인"),
     DUPLEX("복층인"),
     HAS_CAT("고양이가 있는"),
-    DELIVERY_ONLY("배달전문인");
+    DELIVERY_ONLY("배달전문인"),
+    COZY("아늑한"),
+    UNLIMITED_REFILL("무한리필인");
 
     private final String description;
 
