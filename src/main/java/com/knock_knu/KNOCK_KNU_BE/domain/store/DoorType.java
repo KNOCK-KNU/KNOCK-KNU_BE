@@ -17,7 +17,8 @@ public enum DoorType {
     EAST("동문"),
     NORTH("북문"),
     WEST("서문"),
-    SOLO("솔로문");
+    SOLO("솔로문"),
+    TECHNO("테크노문");
 
     private final String description;
 
